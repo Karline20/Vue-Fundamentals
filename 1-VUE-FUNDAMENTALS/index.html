@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ message }}</h1>
+      <h1>{{ getMessage() }}</h1>
+      <span v-html="getVueHtml()"></span>
+      <p>Your lucky number is: {{ luckyNumber }}</p>
+      <p>Your lucky numbers are: {{ luckyNumbers.join(', ') }}</p>
+      <p>
+        Your lucky number is an {{luckyNumber% 2==0?"even number":"odd number"}}
+      </p>
+      <p>Random Number from 1-10: {{ getRandomLuckyNumber(1, 10) }}</p>
+      <p>Updated Lucky Number: {{ updateLuckyNumber() }}</p>
+      <p>
+        {{ employee.name }} is a {{ employee.position }} and is {{ employee.age
+        }} years old.
+      </p>
+      <p>Updating Employee in 5 seconds... {{updateEmployee()}}</p>
+      <p>
+        {{ employeeRef.name }} is a {{ employeeRef.position }} and is {{
+        employeeRef.age }} years old.
+      </p>
+    </div>
+  </body>
+  <script>
+    const { createApp, ref, reactive } = Vue;
+
+    createApp({
+      setup() {
+        const message = "Hello Vue 3!";
+        const messageVueHtml = "Hello VUE HTML!";
+        let luckyNumber = ref(6);
+        const luckyNumbers = [3, 7, 13, 21];
+        const employee = {
+          name: "John Doe",
+          age: 30,
+          position: "Software Engineer",
+        };
+
+        const employeeRef = reactive({
+          name: "Karding Sungkit",
+          age: 27,
+          position: "Software Engineer",
+        });
+
+        function updateEmployee() {
+          setTimeout(() => {
+            employeeRef.name = "Jane Smith";
+            employeeRef.age = 30;
+            employeeRef.position = "QA Engineer";
+          }, 5000);
+        }
+
+        function getMessage() {
+          return message.toUpperCase();
+        }
+
+        function getRandomLuckyNumber(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function updateLuckyNumber() {
+          setTimeout(() => {
+            luckyNumber.value = Math.floor(Math.random() * (100 - 1 + 1));
+          }, 2000);
+          console.log("Random Lucky Number: " + luckyNumber.value);
+        }
+
+        function getVueHtml() {
+          return `<h1><u>${messageVueHtml}</u></h1>`;
+        }
+
+        return {
+          message: message,
+          luckyNumber: luckyNumber,
+          luckyNumbers: luckyNumbers,
+          employee: employee,
+          getRandomLuckyNumber: getRandomLuckyNumber,
+          getMessage: getMessage,
+          updateLuckyNumber: updateLuckyNumber,
+          employeeRef: employeeRef,
+          updateEmployee: updateEmployee,
+          getVueHtml: getVueHtml,
+        };
+      },
+    }).mount("#app");
+  </script>
+</html>
