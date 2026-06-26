@@ -29,6 +29,9 @@
         employeeRef.age }} years old.
       </p>
       <a v-bind:href="vueIntroductionUrl">Visit Vue Introduction</a>
+      <p v-show="employee.hasCorporateCard">
+        Spending Limit: ${{ employee.spendingLimit }}
+      </p>
     </div>
   </body>
   <script>
@@ -45,6 +48,9 @@
           name: "John Doe",
           age: 30,
           position: "Software Engineer",
+          hasCorporateCard: false,
+          spendingLimit: 1000,
+          yearsWithCompany: 5,
         };
 
         const employeeRef = reactive({
