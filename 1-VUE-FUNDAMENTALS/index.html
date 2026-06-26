@@ -9,6 +9,7 @@
       <h1>{{ getMessage() }}</h1>
       <span v-html="getVueHtml()"></span>
       <p>Your lucky number is: {{ luckyNumber }}</p>
+      <p v-once>Your lucky number will render only once: {{ luckyNumber }}</p>
       <p>Your lucky numbers are: {{ luckyNumbers.join(', ') }}</p>
       <p>
         Your lucky number is an {{luckyNumber% 2==0?"even number":"odd number"}}
