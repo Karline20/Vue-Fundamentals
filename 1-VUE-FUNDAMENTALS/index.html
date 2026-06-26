@@ -1,6 +1,9 @@
 <!doctype html>
 <html>
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Fundamentals</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
@@ -25,6 +28,7 @@
         {{ employeeRef.name }} is a {{ employeeRef.position }} and is {{
         employeeRef.age }} years old.
       </p>
+      <a v-bind:href="vueIntroductionUrl">Visit Vue Introduction</a>
     </div>
   </body>
   <script>
@@ -34,6 +38,7 @@
       setup() {
         const message = "Hello Vue 3!";
         const messageVueHtml = "Hello VUE HTML!";
+        const vueIntroductionUrl = "https://vuejs.org/guide/introduction.html";
         let luckyNumber = ref(6);
         const luckyNumbers = [3, 7, 13, 21];
         const employee = {
@@ -86,6 +91,7 @@
           employeeRef: employeeRef,
           updateEmployee: updateEmployee,
           getVueHtml: getVueHtml,
+          vueIntroductionUrl: vueIntroductionUrl,
         };
       },
     }).mount("#app");
