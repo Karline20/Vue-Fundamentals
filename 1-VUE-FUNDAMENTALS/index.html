@@ -30,7 +30,11 @@
       </p>
       <a v-bind:href="vueIntroductionUrl">Visit Vue Introduction</a>
       <p v-show="employee.hasCorporateCard">
-        Spending Limit: ${{ employee.spendingLimit }}
+        Spending V-Show Limit: ${{ employee.spendingLimit }}
+      </p>
+
+      <p v-if="employee.hasCorporateCard">
+        Spending V-IF Limit: ${{ employee.spendingLimit }}
       </p>
     </div>
   </body>
