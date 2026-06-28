@@ -50,6 +50,12 @@
           <span>{{index + 1}} - {{ project.name }} : {{ project.status }}</span>
         </li>
       </ul>
+      <hr />
+      <ul>
+        <li v-for="(value, key) in projects">
+          <span>{{value}} : {{ key}}</span>
+        </li>
+      </ul>
     </div>
   </body>
   <script>
