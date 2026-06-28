@@ -94,11 +94,18 @@
 
       <hr />
       <p>Dynamic Binding Style in Vue:</p>
-        <div v-bind:style="{'background-color': 'aqua', 'font-size': fontSizeTemp + 'px'}">
-          Binding Style
-        </div>
-
+      <div
+        v-bind:style="{'background-color': 'aqua', 'font-size': fontSizeTemp + 'px'}"
+      >
+        Binding Style
       </div>
+
+      <hr />
+      <p>Class Binding in Vue:</p>
+      <br />
+      <span class="padding-medium" v-bind:class=" { h1:true, 'bg-grey':true } "
+        >Sample style class Binding
+      </span>
     </div>
   </body>
   <script>
@@ -190,4 +197,24 @@
       },
     }).mount("#app");
   </script>
+
+  <style>
+    .h1 {
+      font-size: 60px;
+      color: green;
+    }
+    .h2 {
+      font-size: 50px;
+      color: blue;
+    }
+    .bg-grey {
+      background-color: grey;
+    }
+    .bg-green {
+      background-color: lightgreen;
+    }
+    .padding-medium {
+      padding: 20px;
+    }
+  </style>
 </html>
