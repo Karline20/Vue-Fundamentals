@@ -91,6 +91,14 @@
           Binding Style
         </div>
       </div>
+
+      <hr />
+      <p>Dynamic Binding Style in Vue:</p>
+        <div v-bind:style="{'background-color': 'aqua', 'font-size': fontSizeTemp + 'px'}">
+          Binding Style
+        </div>
+
+      </div>
     </div>
   </body>
   <script>
@@ -160,6 +168,7 @@
           }, 5000);
         }
 
+        const fontSizeTemp = 60;
         return {
           message: message,
           luckyNumber: luckyNumber,
@@ -176,6 +185,7 @@
           projects: projects,
           numbers: numbers,
           shuffleNumbers: shuffleNumbers,
+          fontSizeTemp: fontSizeTemp,
         };
       },
     }).mount("#app");
