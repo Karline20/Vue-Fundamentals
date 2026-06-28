@@ -44,13 +44,14 @@
       <p v-for="(name, index) in names">Name {{ index + 1 }}: {{name}}</p>
 
       <hr />
-      <p>Projects Pipeline:</p>
+      <p>Projects Pipeline Array Object:</p>
       <ul>
         <li v-for="(project, index) in projects" :key="index">
           <span>{{index + 1}} - {{ project.name }} : {{ project.status }}</span>
         </li>
       </ul>
       <hr />
+      <p>Projects Pipeline : Values and Key:</p>
       <ul>
         <li v-for="(value, key) in projects">
           <span>{{value}} : {{ key}}</span>
@@ -58,7 +59,7 @@
       </ul>
 
       <hr />
-      <p>Numbers:</p>
+      <p>Numbers V-Once:</p>
       <ul>
         <li v-for="(number, index) in numbers" :key="index">
           <span v-once
