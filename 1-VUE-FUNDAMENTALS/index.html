@@ -162,6 +162,11 @@
       <p>Button On click Event</p>
 
       <button v-on:click="buttonClick">Click Me</button>
+      <br />
+      <br />
+      <button v-on:click="buttonClickWithParam('Hello, Vue!')">
+        Click Me with Parameter
+      </button>
     </div>
   </body>
   <script>
@@ -281,6 +286,10 @@
         function buttonClick() {
           alert("Button Clicked!");
         }
+
+        function buttonClickWithParam(param) {
+          alert("Button Clicked with parameter: " + param);
+        }
         return {
           message: message,
           luckyNumber: luckyNumber,
@@ -305,6 +314,7 @@
           someStyle: someStyle,
           hasBorder: hasBorder,
           buttonClick: buttonClick,
+          buttonClickWithParam: buttonClickWithParam,
         };
       },
     }).mount("#app");
