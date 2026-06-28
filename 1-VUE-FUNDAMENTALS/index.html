@@ -167,6 +167,13 @@
       <button v-on:click="buttonClickWithParam('Hello, Vue!')">
         Click Me with Parameter
       </button>
+      <br />
+      <br />
+      <button
+        v-on:click="buttonClickWithMultipleParams('Hello, Vue!', 'Second Parameter')"
+      >
+        Click Me with Multiple Parameters
+      </button>
     </div>
   </body>
   <script>
@@ -290,6 +297,12 @@
         function buttonClickWithParam(param) {
           alert("Button Clicked with parameter: " + param);
         }
+
+        function buttonClickWithMultipleParams(param1, param2) {
+          alert("Button Clicked with multiple parameters: " + param1);
+
+          alert("Second parameter: " + param2);
+        }
         return {
           message: message,
           luckyNumber: luckyNumber,
@@ -315,6 +328,7 @@
           hasBorder: hasBorder,
           buttonClick: buttonClick,
           buttonClickWithParam: buttonClickWithParam,
+          buttonClickWithMultipleParams: buttonClickWithMultipleParams,
         };
       },
     }).mount("#app");
