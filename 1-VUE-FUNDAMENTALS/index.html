@@ -154,6 +154,14 @@
         >V bind class show notation</span
       >
       <span :style="someStyle.firstStyle"> V bind style show notation </span>
+
+      <br />
+      <br />
+      <br />
+      <hr />
+      <p>Button On click Event</p>
+
+      <button v-on:click="buttonClick">Click Me</button>
     </div>
   </body>
   <script>
@@ -269,6 +277,10 @@
         const hasBorder = {
           border: true,
         };
+
+        function buttonClick() {
+          alert("Button Clicked!");
+        }
         return {
           message: message,
           luckyNumber: luckyNumber,
@@ -292,6 +304,7 @@
           MainTitleStyle: MainTitleStyle,
           someStyle: someStyle,
           hasBorder: hasBorder,
+          buttonClick: buttonClick,
         };
       },
     }).mount("#app");
