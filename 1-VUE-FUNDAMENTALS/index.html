@@ -129,6 +129,19 @@
       >
         Sub title style Class Binding</span
       >
+
+      <hr />
+      <p>Array of Classes and Custom Styles</p>
+
+      <span v-bind:style="someStyle.firstStyle"> First Style </span>
+      <span v-bind:style="someStyle.secondStyle"> Second Style </span>
+      <span v-bind:style="someStyle.thirdStyle"> Third Style </span>
+
+      <span
+        v-bind:class="[isMainTitle() ? MainTitleStyle : SubTitleStyle, hasBorder]"
+      >
+        Border Style
+      </span>
     </div>
   </body>
   <script>
@@ -214,6 +227,36 @@
         };
 
         const fontSizeTemp = 60;
+
+        const someStyle = {
+          firstStyle: {
+            backgroundColor: "lightblue",
+            fontSize: "40px",
+            margin: "10px",
+            border: "2px solid blue",
+            padding: "10px",
+          },
+          secondStyle: {
+            backgroundColor: "lightgreen",
+            fontSize: "30px",
+            margin: "10px",
+            border: "2px solid green",
+            padding: "10px",
+            borderRadius: "10px",
+          },
+          thirdStyle: {
+            backgroundColor: "lightcoral",
+            fontSize: "20px",
+            margin: "10px",
+            border: "1px solid red",
+            padding: "20px",
+            borderRadius: "25px",
+          },
+        };
+
+        const hasBorder = {
+          border: true,
+        };
         return {
           message: message,
           luckyNumber: luckyNumber,
@@ -235,6 +278,8 @@
           hasGreenBackground: hasGreenBackground,
           SubTitleStyle: SubTitleStyle,
           MainTitleStyle: MainTitleStyle,
+          someStyle: someStyle,
+          hasBorder: hasBorder,
         };
       },
     }).mount("#app");
@@ -257,6 +302,9 @@
     }
     .padding-medium {
       padding: 20px;
+    }
+    .border {
+      border: 10px solid red;
     }
   </style>
 </html>
