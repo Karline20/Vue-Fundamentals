@@ -41,6 +41,7 @@
         eligible for a corporate card.
       </p>
       <p v-else>{{ employee.name }} does not have a corporate card.</p>
+      <p v-for="(name, index) in names">Name {{ index + 1 }}: {{name}}</p>
     </div>
   </body>
   <script>
@@ -53,6 +54,7 @@
         const vueIntroductionUrl = "https://vuejs.org/guide/introduction.html";
         let luckyNumber = ref(6);
         const luckyNumbers = [3, 7, 13, 21];
+        const names = ["Alice", "Bob", "Charlie", "David"];
         const employee = {
           name: "John Doe",
           age: 30,
@@ -107,6 +109,7 @@
           updateEmployee: updateEmployee,
           getVueHtml: getVueHtml,
           vueIntroductionUrl: vueIntroductionUrl,
+          names: names,
         };
       },
     }).mount("#app");
