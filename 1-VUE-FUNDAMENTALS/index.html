@@ -142,6 +142,18 @@
       >
         Border Style
       </span>
+
+      <br />
+      <br />
+      <hr />
+      <p>V-Bind Short Notation</p>
+      <br />
+      <span
+        class="padding-medium"
+        :class=" isMainTitle() ? MainTitleStyle : SubTitleStyle"
+        >V bind class show notation</span
+      >
+      <span :style="someStyle.firstStyle"> V bind style show notation </span>
     </div>
   </body>
   <script>
