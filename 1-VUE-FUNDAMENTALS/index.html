@@ -78,6 +78,19 @@
       </ul>
 
       {{ shuffleNumbers() }}
+
+      <hr />
+      <p>Static Binding Style in Vue:</p>
+
+      <div id="binding-style">
+        <div v-bind:style="{backgroundColor: 'aqua', fontSize: '40px'}">
+          Binding Style
+        </div>
+        <br />
+        <div v-bind:style="{'background-color': 'aqua', 'font-size': '40px'}">
+          Binding Style
+        </div>
+      </div>
     </div>
   </body>
   <script>
