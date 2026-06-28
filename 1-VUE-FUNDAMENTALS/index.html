@@ -106,6 +106,29 @@
       <span class="padding-medium" v-bind:class=" { h1:true, 'bg-grey':true } "
         >Sample style class Binding
       </span>
+
+      <hr />
+      <p>Dynamic Class Binding in Vue With Function:</p>
+      <br />
+      <span
+        class="padding-medium"
+        v-bind:class="{
+          h1: isMainTitle(),
+          'bg-green': hasGreenBackground(),
+        }"
+        >Class Binding With Function</span
+      >
+      <br />
+      <br />
+      <hr />
+      <br />
+      <br />
+      <span
+        class="padding-medium"
+        v-bind:class=" isMainTitle() ? MainTitleStyle : SubTitleStyle"
+      >
+        Sub title style Class Binding</span
+      >
     </div>
   </body>
   <script>
@@ -151,7 +174,6 @@
         function getMessage() {
           return message.toUpperCase();
         }
-
         function getRandomLuckyNumber(min, max) {
           return Math.floor(Math.random() * (max - min + 1)) + min;
         }
@@ -175,6 +197,22 @@
           }, 5000);
         }
 
+        function isMainTitle() {
+          return false;
+        }
+        function hasGreenBackground() {
+          return true;
+        }
+
+        const MainTitleStyle = {
+          h1: true,
+          "bg-green": true,
+        };
+        const SubTitleStyle = {
+          h2: true,
+          "bg-green": true,
+        };
+
         const fontSizeTemp = 60;
         return {
           message: message,
@@ -193,6 +231,10 @@
           numbers: numbers,
           shuffleNumbers: shuffleNumbers,
           fontSizeTemp: fontSizeTemp,
+          isMainTitle: isMainTitle,
+          hasGreenBackground: hasGreenBackground,
+          SubTitleStyle: SubTitleStyle,
+          MainTitleStyle: MainTitleStyle,
         };
       },
     }).mount("#app");
