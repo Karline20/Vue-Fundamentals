@@ -67,6 +67,17 @@
           >
         </li>
       </ul>
+
+      <hr />
+      <p>Key in V-For:</p>
+      <ul>
+        <li v-for="(number, index) in numbers" :key="number">
+          <span>Index : {{index + 1}} - Current Number {{ number }}</span>
+          <input type="number" />
+        </li>
+      </ul>
+
+      {{ shuffleNumbers() }}
     </div>
   </body>
   <script>
@@ -130,6 +141,12 @@
 
         const numbers = [1, 2, 3, 4, 5];
 
+        function shuffleNumbers() {
+          setTimeout(() => {
+            numbers.sort(() => Math.random() - 0.5);
+          }, 5000);
+        }
+
         return {
           message: message,
           luckyNumber: luckyNumber,
@@ -145,6 +162,7 @@
           names: names,
           projects: projects,
           numbers: numbers,
+          shuffleNumbers: shuffleNumbers,
         };
       },
     }).mount("#app");
