@@ -42,6 +42,14 @@
       </p>
       <p v-else>{{ employee.name }} does not have a corporate card.</p>
       <p v-for="(name, index) in names">Name {{ index + 1 }}: {{name}}</p>
+
+      <hr />
+      <p>Projects Pipeline:</p>
+      <ul>
+        <li v-for="(project, index) in projects" :key="index">
+          <span>{{index + 1}} - {{ project.name }} : {{ project.status }}</span>
+        </li>
+      </ul>
     </div>
   </body>
   <script>
@@ -63,6 +71,12 @@
           spendingLimit: 1000,
           yearsWithCompany: 5,
         };
+
+        const projects = reactive([
+          { name: "Project A", status: "In Progress" },
+          { name: "Project B", status: "Completed" },
+          { name: "Project C", status: "Not Started" },
+        ]);
 
         const employeeRef = reactive({
           name: "Karding Sungkit",
@@ -110,6 +124,7 @@
           getVueHtml: getVueHtml,
           vueIntroductionUrl: vueIntroductionUrl,
           names: names,
+          projects: projects,
         };
       },
     }).mount("#app");
