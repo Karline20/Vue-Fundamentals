@@ -56,6 +56,16 @@
           <span>{{value}} : {{ key}}</span>
         </li>
       </ul>
+
+      <hr />
+      <p>Numbers:</p>
+      <ul>
+        <li v-for="(number, index) in numbers" :key="index">
+          <span v-once
+            >Index : {{index + 1}} - Current Number {{ number }}</span
+          >
+        </li>
+      </ul>
     </div>
   </body>
   <script>
@@ -117,6 +127,8 @@
           return `<h1><u>${messageVueHtml}</u></h1>`;
         }
 
+        const numbers = [1, 2, 3, 4, 5];
+
         return {
           message: message,
           luckyNumber: luckyNumber,
@@ -131,6 +143,7 @@
           vueIntroductionUrl: vueIntroductionUrl,
           names: names,
           projects: projects,
+          numbers: numbers,
         };
       },
     }).mount("#app");
