@@ -217,7 +217,8 @@
       <p>Key Modifiers</p>
 
       <div>
-        <input type="text" v-on:keyup="pressEnter" />
+        <input type="text" v-on:keyup.enter="pressEnter" />
+        <input type="text" v-on:keyup.enter.ctrl="pressCtrlEnter" />
         <button
           v-on:click.prevent="buttonClickWithModifiers('I love Google', 'Vue', $event)"
         >
@@ -371,6 +372,11 @@
         function pressEnter() {
           alert("You pressed the Enter key!");
         }
+
+        function pressCtrlEnter() {
+          alert("You pressed Ctrl + Enter!");
+        }
+
         return {
           message: message,
           luckyNumber: luckyNumber,
@@ -402,6 +408,7 @@
           currentY: currentY,
           buttonClickWithModifiers: buttonClickWithModifiers,
           pressEnter: pressEnter,
+          pressCtrlEnter: pressCtrlEnter,
         };
       },
     }).mount("#app");
