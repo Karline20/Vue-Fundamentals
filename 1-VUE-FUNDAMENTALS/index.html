@@ -182,6 +182,33 @@
       <button v-on:click="handleEvent($event)">Click me With Event</button>
       <p>Current X: {{ currentX }}</p>
       <p>Current Y: {{ currentY }}</p>
+
+      <br />
+      <br />
+      <br />
+      <hr />
+
+      <p>Event Modifiers</p>
+
+      <div
+        v-on:click.once="buttonClickWithModifiers('Vue Modifiers', 'I love Vue!', $event)"
+      >
+        Something Exciting
+        <button
+          v-on:click.stop="buttonClickWithModifiers('I love Vue!', 'Vue Modifiers',  $event)"
+        >
+          Click Me with Event Modifiers
+        </button>
+      </div>
+
+      <br />
+      <br />
+      <a
+        href="https://www.google.com"
+        v-on:click.prevent="buttonClickWithModifiers('I love Google', 'Vue', $event)"
+      >
+        Click Me to go to Google
+      </a>
     </div>
   </body>
   <script>
@@ -321,6 +348,10 @@
           currentY.value = event.y;
         }
 
+        function buttonClickWithModifiers(param1, param2, event) {
+          alert("Button Clicked with multiple parameters: " + param1);
+          console.log("Event: " + event);
+        }
         return {
           message: message,
           luckyNumber: luckyNumber,
@@ -350,6 +381,7 @@
           handleEvent: handleEvent,
           currentX: currentX,
           currentY: currentY,
+          buttonClickWithModifiers: buttonClickWithModifiers,
         };
       },
     }).mount("#app");
