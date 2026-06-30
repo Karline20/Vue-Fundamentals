@@ -209,6 +209,21 @@
       >
         Click Me to go to Google
       </a>
+
+      <br />
+      <br />
+      <br />
+      <hr />
+      <p>Key Modifiers</p>
+
+      <div>
+        <input type="text" v-on:keyup="pressEnter" />
+        <button
+          v-on:click.prevent="buttonClickWithModifiers('I love Google', 'Vue', $event)"
+        >
+          Click Me Key Modifiers
+        </button>
+      </div>
     </div>
   </body>
   <script>
@@ -352,6 +367,10 @@
           alert("Button Clicked with multiple parameters: " + param1);
           console.log("Event: " + event);
         }
+
+        function pressEnter() {
+          alert("You pressed the Enter key!");
+        }
         return {
           message: message,
           luckyNumber: luckyNumber,
@@ -382,6 +401,7 @@
           currentX: currentX,
           currentY: currentY,
           buttonClickWithModifiers: buttonClickWithModifiers,
+          pressEnter: pressEnter,
         };
       },
     }).mount("#app");
